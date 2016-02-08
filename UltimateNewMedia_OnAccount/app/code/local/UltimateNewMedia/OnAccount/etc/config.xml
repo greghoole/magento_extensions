@@ -1,0 +1,58 @@
+<!--
+ * Extension configuration setting
+ * 
+ * @author Gregory Hoole <greg@ultimatenewmedia.com>
+-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+	<modules>
+		<UltimateNewMedia_OnAccount>
+			<version>0.0.1</version>
+		</UltimateNewMedia_OnAccount>
+	</modules>
+ 
+	<global>
+		<models>
+			<onaccount>
+				<class>UltimateNewMedia_OnAccount_Model</class>
+			</onaccount>
+		</models>
+		<helpers>
+			<onaccount>
+				<class>UltimateNewMedia_OnAccount_Helper</class>
+			</onaccount>
+		</helpers>
+		<blocks>
+			<onaccount>
+				<class>UltimateNewMedia_OnAccount_Block</class>
+			</onaccount>
+		</blocks>
+	</global>
+ 
+	<default>
+		<payment>
+			<onaccount>
+				<active>1</active>
+				<model>onaccount/default</model>
+				<order_status>pending</order_status>
+				<title>Ultimate New Media On Account</title>
+				<sort_order>1</sort_order>
+			</onaccount>
+		</payment>
+	</default>
+ 
+	<frontend>
+		<routers>
+			<onaccount>
+				<use>standard</use>
+				<args>
+					<module>UltimateNewMedia_OnAccount</module>
+					<frontname>onaccount</frontname>
+				</args>
+			</onaccount>
+		</routers>
+	</frontend>
+
+</config>
