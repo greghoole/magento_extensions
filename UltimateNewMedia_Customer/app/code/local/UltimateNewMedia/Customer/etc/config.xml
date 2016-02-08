@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <UltimateNewMedia_Customer>
+            <version>0.0.1</version>
+        </UltimateNewMedia_Customer>
+    </modules>
+    <global>
+        <models>
+            <customer>
+                <rewrite>
+                    <customer>UltimateNewMedia_Customer_Model_Customer</customer>
+                </rewrite>
+            </customer>
+        </models>
+        <resources>
+            <customer_setup>
+                <setup>
+                    <module>UltimateNewMedia_Customer</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </customer_setup>
+            <customer_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </customer_write>
+            <customer_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </customer_read>
+        </resources>
+    </global>
+</config>

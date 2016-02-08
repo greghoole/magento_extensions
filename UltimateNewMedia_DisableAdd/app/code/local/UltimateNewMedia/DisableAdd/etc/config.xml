@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <UltimateNewMedia_DisableAdd>
+            <version>0.0.1</version>
+        </UltimateNewMedia_DisableAdd>
+    </modules>
+    <global>
+        <resources>
+            <disableadd_setup>
+                <setup>
+                    <module>UltimateNewMedia_DisableAdd</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </disableadd_setup>
+            <disableadd_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </disableadd_write>
+            <disableadd_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </disableadd_read>
+        </resources>
+    </global>
+</config>

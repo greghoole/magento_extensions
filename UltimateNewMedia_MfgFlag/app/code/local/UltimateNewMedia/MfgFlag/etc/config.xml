@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <UltimateNewMedia_MfgFlag>
+            <version>0.0.1</version>
+        </UltimateNewMedia_MfgFlag>
+    </modules>
+    <global>
+        <resources>
+            <mfgflag_setup>
+                <setup>
+                    <module>UltimateNewMedia_MfgFlag</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </mfgflag_setup>
+            <mfgflag_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </mfgflag_write>
+            <mfgflag_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </mfgflag_read>
+        </resources>
+    </global>
+</config>

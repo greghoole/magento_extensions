@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <UltimateNewMedia_Inventory>
+            <version>0.1.1</version>
+        </UltimateNewMedia_Inventory>
+    </modules>
+    <global>
+        <helpers>
+            <inventory>
+                <class>UltimateNewMedia_Inventory_Helper</class>
+            </inventory>
+        </helpers>
+        <models>
+            <ultimatenewmedia_inventory>
+                <class>UltimateNewMedia_Inventory_Model</class>
+            </ultimatenewmedia_inventory>
+        </models>
+        <events>
+            <checkout_cart_save_before>
+                <observers>
+                    <ultimatenewmedia_inventory>
+                        <class>ultimatenewmedia_inventory/observer</class>
+                        <method>checkCheckoutCartSaveBefore</method>
+                    </ultimatenewmedia_inventory>
+                </observers>
+            </checkout_cart_save_before>
+            <controller_action_predispatch_checkout_onepage_index>
+                <observers>
+                    <ultimatenewmedia_inventory>
+                        <class>ultimatenewmedia_inventory/observer</class>
+                        <method>checkControllerActionPredispatchCheckoutOnepageIndex</method>
+                    </ultimatenewmedia_inventory>
+                </observers>
+            </controller_action_predispatch_checkout_onepage_index>
+            <sales_order_place_after>
+                <observers>
+                    <ultimatenewmedia_inventory>
+                        <class>ultimatenewmedia_inventory/observer</class>
+                        <method>checkSalesOrderPlaceAfter</method>
+                    </ultimatenewmedia_inventory>
+                </observers>
+            </sales_order_place_after>
+        </events>
+    </global>
+</config>

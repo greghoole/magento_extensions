@@ -1,0 +1,15 @@
+<!--
+ * Enables our extension for use with Magento
+ * 
+ * @author Gregory Hoole <greg@ultimatenewmedia.com>
+-->
+
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <UltimateNewMedia_MfgFlag>
+            <active>TRUE</active>
+            <codePool>local</codePool>
+        </UltimateNewMedia_MfgFlag>
+    </modules>
+</config> 
