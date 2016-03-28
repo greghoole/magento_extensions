@@ -1,0 +1,10 @@
+<?php if(Mage::helper('customer')->isLoggedIn()){ ?>
+<script type="text/javascript">
+  opener.location.reload();
+  window.close();
+</script>
+<?php } else { ?>
+<script type="text/javascript">
+  window.close();
+</script>
+<?php } ?>

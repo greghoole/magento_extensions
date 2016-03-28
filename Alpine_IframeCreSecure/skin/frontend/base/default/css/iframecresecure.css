@@ -1,0 +1,171 @@
+@CHARSET "ISO-8859-1";
+
+body
+{
+	xbackground-color: #F0F0F0;
+	font-size: 12px;
+	font-family: tahoma,arial,helvertica,sans-serif;
+	color: #333333;
+	overflow: hidden;
+	border: 0px solid gray;
+}
+
+.creNameField, .creAddressField, .creAmountField, .creNumberField, 
+.creTypeField, .creExpirationMonthField, .creExpirationYearField, 
+.creCVV2Field, .creAddressOneField, .creAddressTwoField, .creStateField, 
+.creZipField 
+{
+	font-size: 12px;
+	padding: 2px; 
+	font-family: tahoma,arial,helvertica,sans-serif;
+}
+.creNameRow {
+		padding: 3px 0 12px 0;
+}
+#name {
+	margin-bottom: 1em;
+}
+
+.creNameField, .creAddressField, .creAmountField, .creNumberField, 
+.creAddressOneField, .creAddressTwoField, .creZipField, .creCVV2Field
+{
+	width: 200px;
+	background-color: #f2f2f2;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border-left: 1px solid #d1d4da;
+	border-right: 1px solid #d1d4da;
+	border-top: 1px solid #a3a4a9;
+	border-bottom: 1px solid #d6dde3;
+	margin: 5px 0 0 0;
+	padding: 3px 4px;	
+	
+}
+
+.creTypeField, .creCVV2Field
+{
+	width: 130px;
+}
+
+.creStateField
+{
+	width: 120px;
+}
+
+.creZipField 
+{
+	width: 75px;
+}
+
+
+/* Button CSS */
+.completeButton, .completeButton:visited {
+    margin:0;
+    padding:0;
+    border:0;
+    background-color:none;
+    display: inline-block; 
+    color: #fff; 
+    text-decoration: none;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 0 0 rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 0 rgba(0,0,0,0.5);
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    cursor: pointer;
+}
+
+.completeButton, .completeButton:visited { 
+	font-size: 16px; 
+	font-weight:bold; 
+	padding: 5px 30px 5px;
+}
+.completeButton, .completeButton:visited { 
+	background-color: #ff5c00;
+}
+.completeButton:hover { 
+	background-color: #d45500;
+}
+
+.cancelButton
+{
+	display: none;
+}
+
+.creCVV2WhatLink
+{
+	font-size: 10px;
+	color: #FF0000;
+}
+
+.creCardOnFileCheck
+{
+	vertical-align: middle;
+	margin-left: 20px;
+	margin-right: 7px;
+}
+
+.creCardOnFileCheckRow
+{
+	height: 50px;
+	vertical-align: bottom;
+}
+	
+
+.mainTable table
+{
+	width: 200px;
+}
+
+.mainTable td
+{
+	font-size: 12px;
+}
+
+.creButtonLabel
+{
+	padding-top: 10px;
+}
+
+input,select,textarea,button { 
+	font:14px Arial, Helvetica, sans-serif; 
+	vertical-align:middle; 
+	color:#000;
+}
+
+input[type="text"],input[type="password"],
+select, textarea {
+	padding:4px 4px 4px; 
+	background: #fff url(../images/input_bg.jpg) repeat-x left top; 
+	border: 1px solid #999; 
+}
+textarea { 
+	height: 125px;
+}
+select {
+	max-width: 200px;
+	padding: 2px 3px;	
+	height: 23px;
+}
+
+.creCVV2Field {
+width: 65px;
+}
+
+.creCVV2WhatLink {
+padding-left: 12px;
+overflow: hidden;
+color: #000000;
+}
+
+.creAmountField, .creAmountLabel, .creCityRow,
+.creStateLabel, .creStateZipRow, .creCityLabel,
+.creAddressOneLabel, .creAddressOneRow,
+.creAddressTwoLabel, .creAddressTwoRow,
+.creProvinceLabel, .creProvinceRow,
+.crePostalCodeLabel, .crePostalCodeRow,
+.creCountryLabel, .creCountryRow {
+display: none;
+}

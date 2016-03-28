@@ -1,0 +1,176 @@
+<?php $_code = $this->getMethodCode() ?>
+<?php $_total = Mage::getSingleton('checkout/cart')->getQuote()->collectTotals()->getGrandTotal(); ?>
+<script type="text/javascript">
+//<![CDATA[
+var code = '<?php echo $_code ?>';
+var grandTotal = <?php echo $_total; ?>;
+
+var MultiplePayments = {
+	init: function() {
+		Event.observe(code + '_po_amount','blur',function(){
+			MultiplePayments.checkPoAmount();
+		});
+		MultiplePayments.loadPoForm();
+	},
+	loadPoForm: function() {
+		var poAmount = $(code + '_po_amount').getValue();
+		if(poAmount > 0){
+			MultiplePayments.checkPoAmount();
+		}
+	},
+	checkPoAmount: function() {
+		
+		var poAmount = $(code + '_po_amount').getValue();
+		
+		$(code + '_error').hide();
+		
+		if(poAmount <= 0){
+			$(code + '_error').update('<?php echo $this->__('Purchase Order Amount must be greater than 0') ?>');
+			$(code + '_error').show();
+			return;
+		}
+		
+		if(poAmount < grandTotal){
+			$('payment_form_' + code + '_cc').show();
+			var ccAmount = grandTotal - poAmount
+			$(code + '_cc_total').down('span').update('$' + ccAmount.toFixed(2));
+			$(code + '_cc_total').show();
+		}
+		else if(poAmount > grandTotal){
+			$(code + '_error').update('<?php echo $this->__('Purchase Order Amount should not exceed order total') ?>');
+			$(code + '_error').show();
+			$('payment_form_' + code + '_cc').hide();
+			$(code + '_cc_total').hide();
+		}
+		else {
+			$('payment_form_' + code + '_cc').hide();
+			$(code + '_cc_total').hide();
+		}		
+	}
+};
+MultiplePayments.init();
+//]]>
+</script>
+<?php $_code = $this->getMethodCode() ?>
+<ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
+	<li id="<?php echo $_code ?>_error" class="error" style="display:none;"></li>
+    <li>
+        <label for="<?php echo $_code ?>_po_no" class="required"><em>*</em><?php echo $this->__('Purchase Order Number') ?></label>
+        <span class="input-box">
+            <input type="text" title="<?php echo $this->__('Purchase Order Number') ?>" class="input-text required-entry" id="<?php echo $_code ?>_po_number" name="payment[po_number]" value="<?php echo $this->htmlEscape($this->getInfoData('po_number')) ?>" maxlength="20" />
+        </span>
+    </li>
+    <li>
+        <label for="<?php echo $_code ?>_po_amount" class="required"><em>*</em><?php echo $this->__('Purchase Order Amount:') ?></label>
+        <span class="input-box">
+            <input type="text" title="<?php echo $this->__('Purchase Order Amount:') ?>" class="input-text required-entry" id="<?php echo $_code ?>_po_amount" name="payment[po_amount]" value="<?php echo $this->htmlEscape($this->getInfoData('po_amount')) ?>" />
+        </span>
+    </li>
+    <li><?php echo $this->getMethod()->getConfigData('message');?></li>
+    <li><strong>Order Total: $<?php echo number_format($_total,2); ?></strong></li>
+    
+    <div id="payment_form_<?php echo $_code ?>_cc" style="display:none;">
+    <li>
+        <label for="<?php echo $_code ?>_cc_type" class="required"><em>*</em><?php echo $this->__('Credit Card Type') ?></label>
+        <div class="input-box">
+            <select id="<?php echo $_code ?>_cc_type" name="payment[cc_type]" class="required-entry validate-cc-type-select">
+                <option value=""><?php echo $this->__('--Please Select--')?></option>
+            <?php $_ccType = $this->getInfoData('cc_type') ?>
+            <?php foreach ($this->getCcAvailableTypes() as $_typeCode => $_typeName): ?>
+                <option value="<?php echo $_typeCode ?>"<?php if($_typeCode==$_ccType): ?> selected="selected"<?php endif ?>><?php echo $_typeName ?></option>
+            <?php endforeach ?>
+            </select>
+        </div>
+    </li>
+    <li>
+        <label for="<?php echo $_code ?>_cc_number" class="required"><em>*</em><?php echo $this->__('Credit Card Number') ?></label>
+        <div class="input-box">
+            <input type="text" id="<?php echo $_code ?>_cc_number" name="payment[cc_number]" title="<?php echo $this->__('Credit Card Number') ?>" class="input-text validate-cc-number validate-cc-type" value="" />
+        </div>
+    </li>
+    <li id="<?php echo $_code ?>_cc_type_exp_div">
+        <label for="<?php echo $_code ?>_expiration" class="required"><em>*</em><?php echo $this->__('Expiration Date') ?></label>
+        <div class="input-box">
+            <div class="v-fix">
+                <select id="<?php echo $_code ?>_expiration" name="payment[cc_exp_month]" class="month validate-cc-exp required-entry">
+                <?php $_ccExpMonth = $this->getInfoData('cc_exp_month') ?>
+                <?php foreach ($this->getCcMonths() as $k=>$v): ?>
+                    <option value="<?php echo $k?$k:'' ?>"<?php if($k==$_ccExpMonth): ?> selected="selected"<?php endif ?>><?php echo $v ?></option>
+                <?php endforeach ?>
+                </select>
+            </div>
+            <div class="v-fix">
+                <?php $_ccExpYear = $this->getInfoData('cc_exp_year') ?>
+                <select id="<?php echo $_code ?>_expiration_yr" name="payment[cc_exp_year]" class="year required-entry">
+                <?php foreach ($this->getCcYears() as $k=>$v): ?>
+                    <option value="<?php echo $k?$k:'' ?>"<?php if($k==$_ccExpYear): ?> selected="selected"<?php endif ?>><?php echo $v ?></option>
+                <?php endforeach ?>
+                </select>
+            </div>
+        </div>
+    </li>
+    <?php echo $this->getChildHtml() ?>
+    <?php if($this->hasVerification()): ?>
+    <li id="<?php echo $_code ?>_cc_type_cvv_div">
+        <label for="<?php echo $_code ?>_cc_cid" class="required"><em>*</em><?php echo $this->__('Card Verification Number') ?></label>
+        <div class="input-box">
+            <div class="v-fix">
+                <input type="text" title="<?php echo $this->__('Card Verification Number') ?>" class="input-text cvv required-entry validate-cc-cvn" id="<?php echo $_code ?>_cc_cid" name="payment[cc_cid]" value="" />
+            </div>
+            <a href="#" class="cvv-what-is-this"><?php echo $this->__('What is this?') ?></a>
+        </div>
+    </li>
+    <?php endif; ?>
+
+    <?php if ($this->hasSsCardType()): ?>
+    <li id="<?php echo $_code ?>_cc_type_ss_div">
+        <ul class="inner-form">
+            <li class="form-alt"><label for="<?php echo $_code ?>_cc_issue" class="required"><em>*</em><?php echo $this->__('Switch/Solo/Maestro Only') ?></label></li>
+            <li>
+                <label for="<?php echo $_code ?>_cc_issue"><?php echo $this->__('Issue Number') ?>:</label>
+                <span class="input-box">
+                    <input type="text" title="<?php echo $this->__('Issue Number') ?>" class="input-text validate-cc-ukss cvv" id="<?php echo $_code ?>_cc_issue" name="payment[cc_ss_issue]" value="" />
+                </span>
+            </li>
+
+            <li>
+                <label for="<?php echo $_code ?>_start_month"><?php echo $this->__('Start Date') ?>:</label>
+                <div class="input-box">
+                    <div class="v-fix">
+                        <select id="<?php echo $_code ?>_start_month" name="payment[cc_ss_start_month]" class="validate-cc-ukss month">
+                        <?php foreach ($this->getCcMonths() as $k=>$v): ?>
+                            <option value="<?php echo $k?$k:'' ?>"<?php if($k==$this->getInfoData('cc_ss_start_month')): ?> selected="selected"<?php endif ?>><?php echo $v ?></option>
+                        <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="v-fix">
+                        <select id="<?php echo $_code ?>_start_year" name="payment[cc_ss_start_year]" class="validate-cc-ukss year">
+                        <?php foreach ($this->getSsStartYears() as $k=>$v): ?>
+                            <option value="<?php echo $k?$k:'' ?>"<?php if($k==$this->getInfoData('cc_ss_start_year')): ?> selected="selected"<?php endif ?>><?php echo $v ?></option>
+                        <?php endforeach ?>
+                        </select>
+                    </div>
+                </div>
+            </li>
+            <li class="adv-container">&nbsp;</li>
+        </ul>
+        <script type="text/javascript">
+        //<![CDATA[
+        var SSChecked<?php echo $_code ?> = function() {
+            var elm = $('<?php echo $_code ?>_cc_type');
+            if (['SS','SM','SO'].indexOf(elm.value) != -1) {
+                $('<?php echo $_code ?>_cc_type_ss_div').show();
+            } else {
+                $('<?php echo $_code ?>_cc_type_ss_div').hide();
+            }
+        };
+
+        Event.observe($('<?php echo $_code ?>_cc_type'), 'change', SSChecked<?php echo $_code ?>);
+        SSChecked<?php echo $_code ?>();
+        //]]>
+        </script>
+    </li>
+    <?php endif; ?>
+	</div>
+	<li id="<?php echo $_code; ?>_cc_total" style="display:none;"><strong>Credit Card Charge Total: <span>$0.00</span></strong></li>
+</ul>

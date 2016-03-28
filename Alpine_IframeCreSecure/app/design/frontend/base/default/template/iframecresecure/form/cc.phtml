@@ -1,0 +1,33 @@
+<?php 
+$cart = Mage::helper('checkout/cart')->getCart();
+$quoteId = $cart->getQuote()->getEntityId();
+$storeId = Mage::app()->getStore()->getId();
+$creSessionId = ($storeId + 1) . sprintf('%08d',$quoteId);
+$_SESSION['creSessionId'] = $creSessionId; // save into session so we can reference in call back
+$checkoutType = $this->getCheckoutType();
+?>
+
+<!-- Required for all checkout types -->
+<input type="hidden" name="baseUrl" id="baseUrl" value="<?php echo Mage::getStoreConfig('web/secure/base_url'); ?>" />
+<input type="hidden" name="cresecureApiUrl" id="cresecureApiUrl" value="<?php echo Mage::getStoreConfig('payment/iframecresecure/api_url'); ?>" />
+<input type="hidden" name="cresecureApiKey" id="cresecureApiKey" value="<?php echo Mage::getStoreConfig('payment/iframecresecure/api_key'); ?>" />
+<input type="hidden" name="cresecureid" id="cresecureid" value="<?php echo $creSessionId; ?>" />
+<input type="hidden" name="optionalZipcodes" id="optionalZipcodes" value="<?php echo Mage::getStoreConfig('general/country/optional_zip_countries'); ?>" />
+<input type="hidden" name="checkoutType" id="checkoutType" value="<?php echo $checkoutType; ?>" />
+
+<?php 
+  switch($checkoutType):
+    case '1':
+      require('onepagecheckout.phtml');
+      break;
+    case '2':
+      require('multipleaddress.phtml');
+      break;
+    case '3':
+      // require('onestepcheckout.phtml'); - not created yet
+      break;
+    default:
+      // either not defined or we aren't using cresecure
+      break;
+  endswitch;
+?>

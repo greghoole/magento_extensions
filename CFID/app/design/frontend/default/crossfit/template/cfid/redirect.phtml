@@ -1,0 +1,13 @@
+<?php if(Mage::helper('customer')->isLoggedIn()){ ?>
+<?php $url = Mage::helper('cfid')->getCfidValue('cfid_section1/serviceurls/cfid_url_account'); ?>
+<script type="text/javascript">
+  <?php if(!empty($url)){ ?>
+  window.open("<?php echo $url; ?>",'CFID','width=500,height=500');
+  <?php } ?>
+  history.go(-1);
+</script>
+<?php } else { ?>
+<script type="text/javascript">
+  location.href = "<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>";
+</script>
+<?php } ?>

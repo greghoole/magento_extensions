@@ -1,5 +1,11 @@
 Magento 1.x Extensions
 
+Alpine_IframeCreSecure - Payment Method integration with CRE Secure
+
+Alpine_MultiplePayments - Payment Method to support Credit Card and PO split payments
+
+CFID - Magento to Reebok Crossfit login integration
+
 UltimateNewMedia_Customer - Custom form validation
 
 UltimateNewMedia_DisableAdd - Add an attribute that is used on the front end to hide add to cart functionality

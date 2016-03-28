@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+	<checkout_multishipping_overview>
+		<reference name="head">
+            <action method="addJs"><script>iframecresecure.js</script></action>
+            <action method="addJs"><script>cresecure_callback.js</script></action>
+            <action method="addCss"><script>css/cresecure.css</script></action>
+        </reference>
+        <reference name="content">
+            <reference name="checkout_overview">
+                <action method="setTemplate"><template>iframecresecure/form/multishipping/overview.phtml</template></action>
+                <block type="iframecresecure/checkout_multishipping_overview" name="checkout.multishipping.overview.iframecresecure" as="iframecresecure" template="iframecresecure/form/cc.phtml" />
+            </reference>
+        </reference>
+    </checkout_multishipping_overview>
+
+    <checkout_onepage_index translate="label">
+		<reference name="head">
+            <action method="addJs"><script>iframecresecure.js</script></action>
+            <action method="addJs"><script>cresecure_callback.js</script></action>
+            <action method="addCss"><script>css/cresecure.css</script></action>
+        </reference>
+	</checkout_onepage_index>
+
+    <checkout_onepage_review translate="label">
+        <label>One Page Checkout Overview</label>
+        <!-- Mage_Checkout -->
+        <remove name="right"/>
+        <remove name="left"/>
+
+        <block type="checkout/onepage_review_info" name="root" output="toHtml" template="iframecresecure/info.phtml">
+            <action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>checkout/onepage/review/item.phtml</template></action>
+            <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/onepage/review/item.phtml</template></action>
+            <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/onepage/review/item.phtml</template></action>
+            <block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="checkout/onepage/review/totals.phtml"/>
+            <block type="core/text_list" name="checkout.onepage.review.info.items.before" as="items_before" translate="label">
+                <label>Items Before</label>
+            </block>
+            <block type="core/text_list" name="checkout.onepage.review.info.items.after" as="items_after" translate="label">
+                <label>Items After</label>
+            </block>
+            <block type="checkout/agreements" name="checkout.onepage.agreements" as="agreements" template="checkout/onepage/agreements.phtml"/>
+            <block type="iframecresecure/checkout_onepage_review" name="checkout.onepage.review.iframecresecure" as="iframecresecure" template="iframecresecure/form/cc.phtml" />
+            <block type="core/template" name="checkout.onepage.review.button" as="button" template="checkout/onepage/review/button.phtml"/>
+            <remove name="button" />
+        </block>
+    </checkout_onepage_review>
+
+<!--
+    <onestepcheckout_index_index>
+        <block type="checkout/onepage_payment_methods" name="choose-payment-method">
+            <action method="setMethodFormTemplate"><method>iframecresecure</method><template>iframecresecure/form/cc.phtml</template></action>
+        </block>
+    </onestepcheckout_index_index>
+    <onestepcheckout_ajax_set_methods>
+        <block type="checkout/onepage_payment_methods" name="choose-payment-method">
+            <action method="setMethodFormTemplate"><method>iframecresecure</method><template>iframecresecure/form/cc.phtml</template></action>
+        </block>
+    </onestepcheckout_ajax_set_methods>
+    <onestepcheckout_ajax_save_billing>
+        <block type="checkout/onepage_payment_methods" name="choose-payment-method">
+            <action method="setMethodFormTemplate"><method>iframecresecure</method><template>iframecresecure/form/cc.phtml</template></action>
+        </block>
+    </onestepcheckout_ajax_save_billing>
+    <onestepcheckout_ajax_set_methods>
+        <block type="checkout/onepage_payment_methods" name="choose-payment-method">
+            <action method="setMethodFormTemplate"><method>iframecresecure</method><template>iframecresecure/form/cc.phtml</template></action>
+        </block>
+    </onestepcheckout_ajax_set_methods>
+    <onestepcheckout_ajax_set_methods_separate>
+        <block type="checkout/onepage_payment_methods" name="choose-payment-method">
+            <action method="setMethodFormTemplate"><method>iframecresecure</method><template>iframecresecure/form/cc.phtml</template></action>
+        </block>
+    </onestepcheckout_ajax_set_methods_separate>
+-->
+</layout>

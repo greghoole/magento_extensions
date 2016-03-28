@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+ 
+	<default>
+	
+		<reference name="top.links">
+	
+			<!-- 
+			<action method="addLink" translate="label title">
+				<label>Help</label>
+				<url>help</url>
+				<title>Help</title>
+				<prepare>true</prepare>
+				<urlParams helper="core/url/getHomeUrl"/>
+				<position>30</position>
+				<liParams/>
+				<aParams>class="top-link-help"</aParams>
+				<beforeText></beforeText>
+				<afterText></afterText>
+			</action>
+			 -->
+
+			<action method="addLink" translate="label title">
+				<label>Customer Service</label>
+				<url>customer-service</url>
+				<title>Customer Service</title>
+				<prepare>true</prepare>
+				<urlParams helper="core/url/getHomeUrl"/>
+				<position>20</position>
+				<liParams/>
+				<aParams>class="customer-service"</aParams>
+				<beforeText></beforeText>
+				<afterText></afterText>
+			</action>
+	
+		</reference>
+	
+	</default>
+	
+    <customer_logged_out>
+        <!-- Removes 'Log In' link - Default position: 60 -->
+        <reference name="top.links">
+            <action method="removeLinkByUrl"><url helper="customer/getLoginUrl"/></action>
+        </reference>
+    </customer_logged_out>
+ 
+    <customer_logged_in>
+        <!-- Removes 'Log Out' link - Default position: 60 -->
+        <reference name="top.links">
+            <action method="removeLinkByUrl"><url helper="customer/getLogoutUrl"/></action>
+    </customer_logged_in>
+
+</layout>
