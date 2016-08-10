@@ -10,6 +10,8 @@ UltimateNewMedia_Customer - Custom form validation
 
 UltimateNewMedia_DisableAdd - Add an attribute that is used on the front end to hide add to cart functionality
 
+UltimateNewMedia_HidePricing - Simple configuration option to hide pricing from customers until after they login
+
 UltimateNewMedia_Inventory - Addition of attributes and functionality to check low inventory threshold and make sure it isn't bypassed if two (or more) orders are placed at once
 
 UltimateNewMedia_MfgFlag - Add an attribute to display a manufacturer part number (custom attribtue) instead of the SKU
