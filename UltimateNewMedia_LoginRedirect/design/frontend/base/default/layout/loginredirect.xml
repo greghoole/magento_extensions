@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<customer_account_capture>
+		<remove name="right"/>
+        <remove name="left"/>
+
+	    <reference name="content">
+	        <block type="core/template" name="capture.loginredirect" template="loginredirect/capture.phtml"/>
+	    </reference>
+	</customer_account_capture>
+</layout>

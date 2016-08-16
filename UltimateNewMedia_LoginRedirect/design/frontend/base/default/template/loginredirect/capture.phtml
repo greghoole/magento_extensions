@@ -1,0 +1,46 @@
+<?php
+if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+	$customer = Mage::getModel('customer/customer')->load(Mage::getSingleton('customer/session')->getCustomer()->getId());
+	$firstName = $customer->getFirstname();
+	$lastName = $customer->getLastname();
+	$emailAddress = $customer->getEmail();
+}
+?>
+<style>
+label {
+	font-size: 14px;
+    line-height: 24px;
+    padding: 11px;
+    font-weight: bold;
+}
+
+input {
+	line-height: 24px;
+	width: 300px;
+}
+textarea {
+	width: 300px;
+	height: 150px;
+}
+td {
+	height: 40px;
+}
+</style>
+<p><strong>Please complete the form below to finish setting up your account.</strong></p>
+<form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+<input type="hidden" name="oid" value="00DA0000000I0h4" />
+<input type="hidden" name="retURL" value="https://secure.mtmweb.biz/customer/account/finalize" />
+<input type="hidden" name="00NA0000009y9Qw" id="00NA0000009y9Qw" maxlength="255" size="20" value="Secure MTM e-Catalog Registration" />
+<table>
+<tr><td><label for="first_name">First Name</label></td><td><input type="text" name="first_name" id="first_name" maxlength="40" size="20" value="<?php echo $firstName; ?>" /></td></tr>
+<tr><td><label for="last_name">Last Name</label></td><td><input type="text" name="last_name" id="last_name" maxlength="80" size="20" value="<?php echo $lastName; ?>" /></td></tr>
+<tr><td><label for="email">Email</label></td><td><input type="text" name="email" id="email" maxlength="80" size="20" value="<?php echo $emailAddress; ?>" /></td></tr>
+<tr><td><label for="phone">Phone</label></td><td><input type="text" name="phone" id="phone" maxlength="40" size="20" /></td></tr>
+<tr><td><label for="street">Street</label></td><td><textarea name="street"></textarea></td></tr>
+<tr><td><label for="city">City</label></td><td><input type="text" name="city id="city" maxlength="40"" size="20" /></td></tr>
+<tr><td><label for="state">State/Province</label></td><td><input type="text" name="state" id="state" maxlength="20" size="20" /></td></tr>
+<tr><td><label for="zip">Zip</label></td><td><input type="text" name="zip" id="zip" maxlength="20" size="20" /></td></tr>
+<tr><td><label for="country">Country</label></td><td><input type="text" name="country" id="country" maxlength="40" size="20" /></td></tr>
+<tr><td colspan="2"><input type="submit" name="submit"></td></tr>
+</table>
+</form>
