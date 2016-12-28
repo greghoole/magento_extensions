@@ -1,5 +1,7 @@
 Magento 1.x Extensions
 
+UltimateNewMedia_Contacts - Add BCC functionality to default contact us form
+
 UltimateNewMedia_Customer - Custom form validation
 
 UltimateNewMedia_DisableAdd - Add an attribute that is used on the front end to hide add to cart functionality

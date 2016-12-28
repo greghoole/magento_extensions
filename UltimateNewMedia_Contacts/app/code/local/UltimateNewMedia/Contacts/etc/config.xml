@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <UltimateNewMedia_Contacts>
+            <version>0.0.1</version>
+        </UltimateNewMedia_Contacts>
+    </modules>
+    <frontend>
+        <routers>
+            <contacts>
+                <args>
+                    <modules>
+                        <UltimateNewMedia_Contacts before="Mage_Contacts_IndexController">UltimateNewMedia_Contacts</UltimateNewMedia_Contacts>
+                    </modules>
+                </args>
+            </contacts>
+        </routers>
+    </frontend>
+</config>
