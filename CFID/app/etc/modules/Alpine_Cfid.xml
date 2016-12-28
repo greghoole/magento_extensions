@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Alpine_Cfid>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+              <Enterprise_GiftCard/>
+              <Enterprise_GiftCardAccount/>
+            </depends>
+        </Alpine_Cfid>
+    </modules>
+</config>

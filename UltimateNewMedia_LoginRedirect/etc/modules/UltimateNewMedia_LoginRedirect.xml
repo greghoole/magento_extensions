@@ -1,0 +1,8 @@
+<config>
+   <modules>
+      <UltimateNewMedia_LoginRedirect>
+         <active>true</active>
+         <codePool>local</codePool>
+      </UltimateNewMedia_LoginRedirect>
+   </modules>
+</config>

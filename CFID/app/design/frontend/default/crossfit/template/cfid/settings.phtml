@@ -1,0 +1,8 @@
+<script type="text/javascript">
+Event.observe(window,'load',function(){
+  CFID.clientId = '<?php echo Mage::helper('cfid')->getCfidValue('cfid_section1/server_settings/cfid_client_id'); ?>';
+  CFID.loginUrl = '<?php echo Mage::helper('cfid')->getCfidValue('cfid_section1/serviceurls/cfid_url_authorization'); ?>';
+  CFID.redirectUrl = '<?php echo Mage::helper('cfid')->getCfidValue('cfid_section1/serviceurls/cfid_url_redirect'); ?>';
+  CFID.accountUrl = '<?php echo Mage::helper('cfid')->getCfidValue('cfid_section1/serviceurls/cfid_url_account'); ?>';
+});
+</script>

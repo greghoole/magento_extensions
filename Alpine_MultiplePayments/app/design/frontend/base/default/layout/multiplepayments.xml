@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <multiplepayments_index_index>
+        <reference name="content">
+            <block type="multiplepayments/multiplepayments" name="multiplepayments" template="multiplepayments/multiplepayments.phtml" />
+        </reference>
+    </multiplepayments_index_index>
+</layout> 

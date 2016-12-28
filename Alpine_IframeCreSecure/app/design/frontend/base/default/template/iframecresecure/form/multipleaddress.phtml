@@ -1,0 +1,16 @@
+<?php $_code = $this->getMethodCode();?>
+<ul class="form-list" id="payment_form_<?php echo $_code ?>">
+  <div id="crePaymentFrame_holder">
+    <div style="padding:20px;text-align:center"><img src="/skin/frontend/default/default/images/opc-ajax-loader.gif" border="0" /></div>
+    <script type="text/javascript">
+      Event.observe(window, 'load', function() {
+        CreSecure.init('multipleaddress',0);
+        CreSecure.loadIFrameMultipleAddress();
+      });
+    </script>
+  </div>
+  <div id="cvv_info">
+    <div id="cvv_info_closer"><a href="javascript:hideCVV2();">X</a></div>
+    <div id="cvv_details">The CVV2 is the three-digit or four-digit number printed in the signature space on the back of most credit cards, such as Visa, Mastercard, and Discover cards. The CVV2 number is always the last group of numbers in the signature space on the back of the card. It is not part of your regular credit card number.</div>
+  </div>
+</ul>

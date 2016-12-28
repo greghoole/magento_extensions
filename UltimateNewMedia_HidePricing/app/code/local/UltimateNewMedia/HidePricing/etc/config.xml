@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <UltimateNewMedia_HidePricing>
+            <version>0.0.1</version>
+        </UltimateNewMedia_HidePricing>
+    </modules>
+    <global>
+        <models>
+            <hidepricing>
+                <class>UltimateNewMedia_HidePricing_Model</class>
+            </hidepricing>
+        </models>
+        <helpers>
+            <hidepricing>
+                <class>UltimateNewMedia_HidePricing_Helper</class>
+            </hidepricing>
+        </helpers>
+    </global>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <unm>
+                                            <title>Ultimate New Media - All</title>
+                                        </unm>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

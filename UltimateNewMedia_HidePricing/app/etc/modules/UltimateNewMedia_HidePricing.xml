@@ -1,0 +1,8 @@
+<config>
+   <modules>
+      <UltimateNewMedia_HidePricing>
+         <active>true</active>
+         <codePool>local</codePool>
+      </UltimateNewMedia_HidePricing>
+   </modules>
+</config>

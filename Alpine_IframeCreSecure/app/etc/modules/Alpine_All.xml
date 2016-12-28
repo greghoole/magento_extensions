@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Alpine_IframeCreSecure>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Paygate/>
+            </depends>
+        </Alpine_IframeCreSecure>
+    </modules>
+</config>
