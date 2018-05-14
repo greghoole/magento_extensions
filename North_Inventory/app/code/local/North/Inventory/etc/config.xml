@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <North_Inventory>
+            <version>0.1.1</version>
+        </North_Inventory>
+    </modules>
+    <global>
+        <helpers>
+            <inventory>
+                <class>North_Inventory_Helper</class>
+            </inventory>
+        </helpers>
+        <models>
+            <north_inventory>
+                <class>North_Inventory_Model</class>
+            </north_inventory>
+        </models>
+        <events>
+            <checkout_cart_save_before>
+                <observers>
+                    <north_inventory>
+                        <class>north_inventory/observer</class>
+                        <method>checkCheckoutCartSaveBefore</method>
+                    </north_inventory>
+                </observers>
+            </checkout_cart_save_before>
+            <controller_action_predispatch_checkout_onepage_index>
+                <observers>
+                    <north_inventory>
+                        <class>north_inventory/observer</class>
+                        <method>checkControllerActionPredispatchCheckoutOnepageIndex</method>
+                    </north_inventory>
+                </observers>
+            </controller_action_predispatch_checkout_onepage_index>
+            <sales_order_place_after>
+                <observers>
+                    <north_inventory>
+                        <class>north_inventory/observer</class>
+                        <method>checkSalesOrderPlaceAfter</method>
+                    </north_inventory>
+                </observers>
+            </sales_order_place_after>
+        </events>
+    </global>
+</config>

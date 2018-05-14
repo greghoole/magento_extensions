@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <North_Inventory>
+            <active>true</active>
+            <codePool>local</codePool>
+        </North_Inventory>
+    </modules>
+</config>

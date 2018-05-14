@@ -6,6 +6,8 @@ Alpine_MultiplePayments - Payment Method to support Credit Card and PO split pay
 
 CFID - Magento to Reebok Crossfit login integration
 
+North_Inventory - Custom inventory check functionality
+
 UltimateNewMedia_Contacts - Add BCC functionality to default contact us form
 
 UltimateNewMedia_Customer - Custom form validation
