@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <UltimateNewMedia_AddressAutocomplete>
+            <active>true</active>
+            <codePool>local</codePool>
+        </UltimateNewMedia_AddressAutocomplete>
+    </modules>
+</config>

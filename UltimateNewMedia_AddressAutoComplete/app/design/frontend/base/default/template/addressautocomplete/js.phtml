@@ -1,0 +1,3 @@
+<?php if ($this->isEnabled()): ?>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $this->escapeHtml($this->getApiKey()); ?>&libraries=places"></script>
+<?php endif; ?>

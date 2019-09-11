@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <UltimateNewMedia_AddressAutocomplete>
+            <version>1.0.0</version>
+        </UltimateNewMedia_AddressAutocomplete>
+    </modules>
+    <global>
+        <blocks>
+            <ultimatenewmedia_addressautocomplete>
+                <class>UltimateNewMedia_AddressAutocomplete_Block</class>
+            </ultimatenewmedia_addressautocomplete>
+        </blocks>
+        <helpers>
+            <ultimatenewmedia_addressautocomplete>
+                <class>UltimateNewMedia_AddressAutocomplete_Helper</class>
+            </ultimatenewmedia_addressautocomplete>
+        </helpers>
+        <models>
+            <ultimatenewmedia_addressautocomplete>
+                <class>UltimateNewMedia_AddressAutocomplete_Model</class>
+            </ultimatenewmedia_addressautocomplete>
+        </models>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <ultimatenewmedia_addressautocomplete>
+                    <file>ultimatenewmedia/addressautocomplete.xml</file>
+                </ultimatenewmedia_addressautocomplete>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <autocomplete>
+                                            <title>UltimateNewMedia Address Autocomplete Section</title>
+                                        </autocomplete>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+        <autocomplete>
+            <usage>
+                <placeholder><![CDATA[Enter a location]]></placeholder>
+                <countries_as_admin2>BY,DK,ES,GB,TR</countries_as_admin2>
+            </usage>
+        </autocomplete>
+    </default>
+</config>
